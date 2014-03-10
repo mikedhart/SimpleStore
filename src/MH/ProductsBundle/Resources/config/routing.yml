@@ -1,0 +1,19 @@
+MHProductsBundle_admin_products:
+    resource: "@MHProductsBundle/Resources/config/routing/product.yml"
+    prefix:   /admin/products
+
+MHProductsBundle_admin_product-detail-values:
+    resource: "@MHProductsBundle/Resources/config/routing/detailvalue.yml"
+    prefix:   /admin/product-detail-values
+
+MHProductsBundle_admin_primary-categories:
+    resource: "@MHProductsBundle/Resources/config/routing/primarycategory.yml"
+    prefix:   /admin/primary-categories
+
+MHProductsBundle_admin_sub-categories:
+    resource: "@MHProductsBundle/Resources/config/routing/subcategory.yml"
+    prefix:   /admin/sub-categories
+
+MHProductsBundle_admin_uploads:
+    resource: "@MHProductsBundle/Resources/config/routing/upload.yml"
+    prefix:   /admin/uploads

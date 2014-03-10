@@ -1,0 +1,7 @@
+parameters:
+#    mh_products.example.class: MH\ProductsBundle\Example
+
+services:
+#    mh_products.example:
+#        class: %mh_products.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

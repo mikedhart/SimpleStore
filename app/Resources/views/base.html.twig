@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+        <script src="{{ asset('js/jquery-2.1.0.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Pantastic</a>
+                <ul class="nav">
+                    <li><a href="{{ path('admin_products') }}">Products</a></li>
+                    <li><a href="{{ path('admin_primary-categories') }}">Primary Categories</a></li>
+                    <li><a href="{{ path('admin_sub-categories') }}">Sub Categories</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div><!-- container -->
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

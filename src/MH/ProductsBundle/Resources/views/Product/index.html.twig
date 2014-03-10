@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="row">
+        <div class="span12">
+            <h1>Product list</h1>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Sku</th>
+                        <th>Barcode</th>
+                        <th>Manufacturerrange</th>
+                        <th>Name</th>
+                        <th>Blurb</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Suggestedsellingprice</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('admin_products_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.sku }}</td>
+                        <td>{{ entity.barcode }}</td>
+                        <td>{{ entity.manufacturerRange }}</td>
+                        <td>{{ entity.name }}</td>
+                        <td>{{ entity.blurb }}</td>
+                        <td>{{ entity.description }}</td>
+                        <td>{{ entity.price }}</td>
+                        <td>{{ entity.suggestedSellingPrice }}</td>
+                        <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('admin_products_show', { 'id': entity.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_products_edit', { 'id': entity.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="{{ path('admin_products_new') }}" class="btn btn-primary">
+                Create a new entry
+            </a>
+        </div><!-- span12 -->
+    </div><!-- row -->
+    {% endblock %}

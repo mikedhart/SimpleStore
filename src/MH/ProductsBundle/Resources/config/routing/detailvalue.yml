@@ -1,0 +1,30 @@
+admin_product-detail-values:
+    pattern:  /
+    defaults: { _controller: "MHProductsBundle:DetailValue:index" }
+
+admin_product-detail-values_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MHProductsBundle:DetailValue:show" }
+
+admin_product-detail-values_new:
+    pattern:  /new
+    defaults: { _controller: "MHProductsBundle:DetailValue:new" }
+
+admin_product-detail-values_create:
+    pattern:  /create
+    defaults: { _controller: "MHProductsBundle:DetailValue:create" }
+    requirements: { _method: post }
+
+admin_product-detail-values_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MHProductsBundle:DetailValue:edit" }
+
+admin_product-detail-values_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MHProductsBundle:DetailValue:update" }
+    requirements: { _method: post|put }
+
+admin_product-detail-values_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MHProductsBundle:DetailValue:delete" }
+    requirements: { _method: post|delete }

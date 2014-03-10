@@ -1,0 +1,30 @@
+admin_primary-categories:
+    pattern:  /
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:index" }
+
+admin_primary-categories_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:show" }
+
+admin_primary-categories_new:
+    pattern:  /new
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:new" }
+
+admin_primary-categories_create:
+    pattern:  /create
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:create" }
+    requirements: { _method: post }
+
+admin_primary-categories_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:edit" }
+
+admin_primary-categories_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:update" }
+    requirements: { _method: post|put }
+
+admin_primary-categories_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MHProductsBundle:PrimaryCategory:delete" }
+    requirements: { _method: post|delete }

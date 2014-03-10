@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>SubCategory creation</h1>
+
+    {{ form(form) }}
+
+
+        <a class="btn" href="{{ path('admin_sub-categories') }}">
+            Back to the list
+        </a>
+
+{% endblock %}

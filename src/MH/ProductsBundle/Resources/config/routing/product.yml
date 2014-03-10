@@ -1,0 +1,34 @@
+admin_products:
+    pattern:  /
+    defaults: { _controller: "MHProductsBundle:Product:index" }
+
+admin_products_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MHProductsBundle:Product:show" }
+
+admin_products_new:
+    pattern:  /new
+    defaults: { _controller: "MHProductsBundle:Product:new" }
+
+admin_products_import:
+    pattern:  /import
+    defaults: { _controller: "MHProductsBundle:Product:import" }
+
+admin_products_create:
+    pattern:  /create
+    defaults: { _controller: "MHProductsBundle:Product:create" }
+    requirements: { _method: post }
+
+admin_products_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MHProductsBundle:Product:edit" }
+
+admin_products_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MHProductsBundle:Product:update" }
+    requirements: { _method: post|put }
+
+admin_products_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MHProductsBundle:Product:delete" }
+    requirements: { _method: post|delete }
