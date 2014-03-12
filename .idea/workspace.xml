@@ -4,33 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Settings/new.html.twig" line="13" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47398abc-424b-4c7c-8e68-4419d896583e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Services/SagePay.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/complete_order.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/empty_cart.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/layout.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/primary_category.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/product_list.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/single_product.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/PrimaryCategory.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/PrimaryCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/PrimaryCategoryController.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/PrimaryCategoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Form/PrimaryCategoryType.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Form/PrimaryCategoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/ProductController.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/ProductController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Form/ProductType.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Form/ProductType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/SubCategory.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/SubCategory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/SubCategoryController.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/SubCategoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Form/SubCategoryType.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Form/SubCategoryType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Upload.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/UploadController.php" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Controller/UploadController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing_dev.yml" afterPath="$PROJECT_DIR$/app/config/routing_dev.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MH/ProductsBundle/Resources/config/validation.yml" afterPath="$PROJECT_DIR$/src/MH/ProductsBundle/Resources/config/validation.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="47398abc-424b-4c7c-8e68-4419d896583e" name="Default" comment="" />
     <ignored path="SimpleStore.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,64 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="single_product.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/single_product.html.twig">
+      <file leaf-file-name="routing.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="118" selection-start="1111" selection-end="1111" vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="782">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="58" selection-start="2413" selection-end="2413" vertical-scroll-proportion="-18.615385" vertical-offset="553" max-vertical-offset="1275">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="53" selection-start="4109" selection-end="4109" vertical-scroll-proportion="0.84517306" vertical-offset="2443" max-vertical-offset="3009">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UploadController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Controller/UploadController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="174" column="72" selection-start="4774" selection-end="4774" vertical-scroll-proportion="-22.884615" vertical-offset="2295" max-vertical-offset="3842">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product_list.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/product_list.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="39" selection-start="304" selection-end="681" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="595">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MH/StoreBundle/Controller/DefaultController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="48" selection-start="4304" selection-end="4304" vertical-scroll-proportion="-4.576923" vertical-offset="1938" max-vertical-offset="3689">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Product.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="40" selection-start="3643" selection-end="3659" vertical-scroll-proportion="-5.5882354" vertical-offset="3166" max-vertical-offset="9146">
+            <state line="2" column="15" selection-start="85" selection-end="85" vertical-scroll-proportion="0.057142857" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
@@ -496,6 +416,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleStore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -601,34 +553,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Form/SubCategoryType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="25" selection-start="522" selection-end="522" vertical-scroll-proportion="0.5079086" vertical-offset="0" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Resources/config/validation.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="28" selection-start="271" selection-end="271" vertical-scroll-proportion="0.34285715" vertical-offset="0" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Controller/SubCategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="30" selection-start="4933" selection-end="4933" vertical-scroll-proportion="0.71704745" vertical-offset="2448" max-vertical-offset="3859">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="18" selection-start="1380" selection-end="1380" vertical-scroll-proportion="0.27102804" vertical-offset="1009" max-vertical-offset="3417">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Entity/PrimaryCategory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="103" column="20" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.5493757" vertical-offset="1250" max-vertical-offset="4403">
@@ -666,7 +590,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Controller/UploadController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="72" selection-start="4774" selection-end="4774" vertical-scroll-proportion="-22.884615" vertical-offset="2295" max-vertical-offset="3842">
+        <state line="174" column="72" selection-start="4774" selection-end="4774" vertical-scroll-proportion="1.0456942" vertical-offset="2295" max-vertical-offset="3842">
           <folding />
         </state>
       </provider>
@@ -680,21 +604,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MH/StoreBundle/Controller/DefaultController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="48" selection-start="4304" selection-end="4304" vertical-scroll-proportion="-4.576923" vertical-offset="1938" max-vertical-offset="3689">
+        <state line="125" column="48" selection-start="4304" selection-end="4304" vertical-scroll-proportion="0.20913884" vertical-offset="1938" max-vertical-offset="3689">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Entity/Product.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="40" selection-start="3643" selection-end="3659" vertical-scroll-proportion="-5.5882354" vertical-offset="3166" max-vertical-offset="9146">
+        <state line="204" column="40" selection-start="3643" selection-end="3659" vertical-scroll-proportion="0.52389705" vertical-offset="3166" max-vertical-offset="9146">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Default/product_list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="39" selection-start="304" selection-end="681" vertical-scroll-proportion="-8.5" vertical-offset="0" max-vertical-offset="595">
+        <state line="13" column="39" selection-start="304" selection-end="681" vertical-scroll-proportion="0.397482" vertical-offset="0" max-vertical-offset="595">
           <folding />
         </state>
       </provider>
@@ -708,7 +632,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="53" selection-start="4109" selection-end="4109" vertical-scroll-proportion="0.84517306" vertical-offset="2443" max-vertical-offset="3009">
+        <state line="171" column="53" selection-start="4109" selection-end="4109" vertical-scroll-proportion="-31.2" vertical-offset="2127" max-vertical-offset="3009">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MH/ProductsBundle/Controller/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="53" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.52389705" vertical-offset="395" max-vertical-offset="6256">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="15" selection-start="85" selection-end="85" vertical-scroll-proportion="0.057142857" vertical-offset="0" max-vertical-offset="595">
           <folding />
         </state>
       </provider>
