@@ -1,0 +1,30 @@
+admin_settings:
+    pattern:  /
+    defaults: { _controller: "MHStoreBundle:Settings:index" }
+
+admin_settings_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MHStoreBundle:Settings:show" }
+
+admin_settings_new:
+    pattern:  /new
+    defaults: { _controller: "MHStoreBundle:Settings:new" }
+
+admin_settings_create:
+    pattern:  /create
+    defaults: { _controller: "MHStoreBundle:Settings:create" }
+    requirements: { _method: post }
+
+admin_settings_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MHStoreBundle:Settings:edit" }
+
+admin_settings_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MHStoreBundle:Settings:update" }
+    requirements: { _method: post|put }
+
+admin_settings_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MHStoreBundle:Settings:delete" }
+    requirements: { _method: post|delete }

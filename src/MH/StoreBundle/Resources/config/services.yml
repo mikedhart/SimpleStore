@@ -1,0 +1,9 @@
+parameters:
+#    mh_store.example.class: MH\StoreBundle\Example
+
+services:
+#    mh_store.example:
+#        class: %mh_store.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+  mh_store.sage:
+    class: MH\StoreBundle\Services\SagePay

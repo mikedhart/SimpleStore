@@ -1,0 +1,29 @@
+{% extends 'MHStoreBundle:Default:layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="listing">
+                    {% for category in category.subCategories %}
+                        <li>
+                            {% if category.webpath is null %}
+                                <img src="http://placehold.it/131x140&text=Image+missing" alt="Image of {{ category }}" />
+                            {% else %}
+                                <img width="131" height="140" src="{{ category.webpath }}" alt="Image of {{ category }}" />
+                            {% endif %}
+
+                            <div class="details">
+                                <a class="header" href="{{ path('mh_store_sub_category', { id: category.id }) }}">{{ category }}</a>
+                                <p class="description">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                </p>
+                                <a class="btn" href="{{ path('mh_store_sub_category', { id: category.id }) }}">View</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div><!-- span12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+{% endblock %}

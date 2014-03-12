@@ -42,6 +42,7 @@ class SubCategoryController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $entity->upload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('admin_sub-categories'));
@@ -169,6 +170,7 @@ class SubCategoryController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->upload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('admin_sub-categories'));

@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <div class="row">
+        <div class="span12">
+    <h1>Settings</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Storename</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>Town</th>
+                <th>County</th>
+                <th>Country</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Fax</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_settings_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.storeName }}</td>
+                <td>{{ entity.address1 }}</td>
+                <td>{{ entity.address2 }}</td>
+                <td>{{ entity.town }}</td>
+                <td>{{ entity.county }}</td>
+                <td>{{ entity.country }}</td>
+                <td>{{ entity.phone }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.fax }}</td>
+                <td>
+
+                        <a class="btn btn-primary" href="{{ path('admin_settings_edit', { 'id': entity.id }) }}">edit</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+            </div>
+            </div>
+            </div>
+    {% endblock %}

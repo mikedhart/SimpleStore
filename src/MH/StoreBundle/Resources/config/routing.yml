@@ -1,0 +1,33 @@
+mh_store_homepage:
+    pattern:  /
+    defaults: { _controller: MHStoreBundle:Default:index }
+
+mh_store_add_to_cart:
+    pattern:  /add-to-cart
+    defaults: { _controller: MHStoreBundle:Default:addToCart }
+    requirements: { _method: post }
+
+mh_store_remove_from_cart:
+    pattern:  /remove-from-cart
+    defaults: { _controller: MHStoreBundle:Default:removeFromCart }
+    requirements: { _method: post }
+
+mh_store_complete_order:
+    pattern:  /complete-order
+    defaults: { _controller: MHStoreBundle:Default:completeOrder }
+
+mh_store_clear_order:
+    pattern:  /clear-order
+    defaults: { _controller: MHStoreBundle:Default:clearOrder }
+
+mh_store_primary_category:
+    pattern:  /primary-category/{id}
+    defaults: { _controller: MHStoreBundle:Default:primaryCategories }
+
+mh_store_sub_category:
+    pattern:  /sub-category/{id}
+    defaults: { _controller: MHStoreBundle:Default:subCategories }
+
+mh_store_product:
+    pattern:  /product/{name}
+    defaults: { _controller: MHStoreBundle:Default:product }

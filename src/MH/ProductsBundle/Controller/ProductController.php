@@ -84,7 +84,16 @@ class ProductController extends Controller
             $product->setName($row[4]);
             $product->setPrimaryCategory($primaryCategory);
             $product->setSubCategory($subCategory);
-            $product->setBlurb($row[8]);
+
+
+            if ($row[8] == "") {
+                $blurb = substr($row[9], 0, 37);
+            } else {
+                $blurb = $row[8];
+            }
+
+            $product->setBlurb($blurb);
+
             $product->setDescription($row[9]);
 
             if (is_numeric($row[11])) {

@@ -23,6 +23,7 @@ class ProductType extends AbstractType
             ->add('description')
             ->add('price')
             ->add('suggestedSellingPrice')
+            ->add('stockLevel')
             ->add('details', 'collection', array('type' => new DetailValueType(), 'allow_add' => true, 'by_reference' => false, 'allow_delete' => true))
         ;
     }

@@ -86,6 +86,13 @@ class Product
     private $suggestedSellingPrice;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="stock_level", type="integer")
+     */
+    private $stockLevel;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="DetailValue", mappedBy="product",cascade={"persist"})
@@ -112,6 +119,14 @@ class Product
      * @ORM\ManyToOne(targetEntity="SubCategory", inversedBy="products")
      */
     private $subCategory;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="CustomerOrder", mappedBy="products")
+     * @ORM\JoinTable(name="mh_products_ordered_products")
+     */
+    private $orders;
 
     /**
      * Get id
@@ -453,5 +468,66 @@ class Product
     public function getSubCategory()
     {
         return $this->subCategory;
+    }
+
+    /**
+     * Add orders
+     *
+     * @param \MH\ProductsBundle\Entity\CustomerOrder $orders
+     * @return Product
+     */
+    public function addOrder(\MH\ProductsBundle\Entity\CustomerOrder $orders)
+    {
+        $this->orders[] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Remove orders
+     *
+     * @param \MH\ProductsBundle\Entity\CustomerOrder $orders
+     */
+    public function removeOrder(\MH\ProductsBundle\Entity\CustomerOrder $orders)
+    {
+        $this->orders->removeElement($orders);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    public function getHash()
+    {
+        return urlencode($this->getName());
+    }
+
+    /**
+     * Set stockLevel
+     *
+     * @param integer $stockLevel
+     * @return Product
+     */
+    public function setStockLevel($stockLevel)
+    {
+        $this->stockLevel = $stockLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get stockLevel
+     *
+     * @return integer 
+     */
+    public function getStockLevel()
+    {
+        return $this->stockLevel;
     }
 }

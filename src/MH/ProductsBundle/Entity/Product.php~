@@ -86,6 +86,13 @@ class Product
     private $suggestedSellingPrice;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="stock_level", type="integer")
+     */
+    private $stockLevel;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="DetailValue", mappedBy="product",cascade={"persist"})
@@ -112,6 +119,14 @@ class Product
      * @ORM\ManyToOne(targetEntity="SubCategory", inversedBy="products")
      */
     private $subCategory;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="CustomerOrder", mappedBy="products")
+     * @ORM\JoinTable(name="mh_products_ordered_products")
+     */
+    private $orders;
 
     /**
      * Get id
@@ -407,5 +422,89 @@ class Product
     public function getManufacturer()
     {
         return $this->manufacturer;
+    }
+
+    /**
+     * Set primaryCategory
+     *
+     * @param \MH\ProductsBundle\Entity\PrimaryCategory $primaryCategory
+     * @return Product
+     */
+    public function setPrimaryCategory(\MH\ProductsBundle\Entity\PrimaryCategory $primaryCategory = null)
+    {
+        $this->primaryCategory = $primaryCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get primaryCategory
+     *
+     * @return \MH\ProductsBundle\Entity\PrimaryCategory 
+     */
+    public function getPrimaryCategory()
+    {
+        return $this->primaryCategory;
+    }
+
+    /**
+     * Set subCategory
+     *
+     * @param \MH\ProductsBundle\Entity\SubCategory $subCategory
+     * @return Product
+     */
+    public function setSubCategory(\MH\ProductsBundle\Entity\SubCategory $subCategory = null)
+    {
+        $this->subCategory = $subCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get subCategory
+     *
+     * @return \MH\ProductsBundle\Entity\SubCategory 
+     */
+    public function getSubCategory()
+    {
+        return $this->subCategory;
+    }
+
+    /**
+     * Add orders
+     *
+     * @param \MH\ProductsBundle\Entity\CustomerOrder $orders
+     * @return Product
+     */
+    public function addOrder(\MH\ProductsBundle\Entity\CustomerOrder $orders)
+    {
+        $this->orders[] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Remove orders
+     *
+     * @param \MH\ProductsBundle\Entity\CustomerOrder $orders
+     */
+    public function removeOrder(\MH\ProductsBundle\Entity\CustomerOrder $orders)
+    {
+        $this->orders->removeElement($orders);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    public function getHash()
+    {
+        return urlencode(strtolower(str_replace(' ', '-', $this->getName())));
     }
 }

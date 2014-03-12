@@ -1,0 +1,41 @@
+{% extends 'MHStoreBundle:Default:layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                {% if product.uploads.count == 0 %}
+                    <img src="http://placehold.it/370x370&text=Image+missing" alt="Image of {{ product }}" />
+                {% else %}
+                    {% for upload in product.uploads %}
+                        <img width="370" height="370" src="{{ upload.webpath }}" alt="Image of {{ product }}" />
+                    {% endfor %}
+                {% endif %}
+            </div><!-- span4 -->
+            <div class="span8">
+                <h1>{{ product }}</h1>
+                <ul>
+                    <li>Manufacturer: {{ product.manufacturer.name }}</li>
+                    <li>Range: {{ product.manufacturerRange }}</li>
+                </ul>
+                <p>{{ product.description }}</p>
+                <ul>
+                    {% for value in product.details %}
+                        <li>{{ value.detail.name }}: {% if value.value == 'Y' %}Yes{% else %}{{ value.value }}{% endif %}</li>
+                    {% endfor %}
+                </ul>
+                <div class="add_to_cart">
+                    <span class="ssp">{{ currency.html }}{{ product.suggestedSellingPrice }}</span>
+                    <span class="our_price">{{ currency.html }}{{ product.price }}</span>
+                    <p>Availability: {% if product.stocklevel > 0 %}<span class="green">In stock</span>{% else %}Out of stock{% endif %}</p>
+                    {% if product.stocklevel > 0 %}
+                        <form action="{{ path('mh_store_add_to_cart') }}" method="post">
+                            <input type="hidden" name="product[id]" value="{{ product.id }}" />
+                            <input type="submit" value="Add to cart" class="btn" />
+                        </form>
+                    {% endif %}
+                </div>
+            </div><!-- span8 -->
+        </div>
+    </div>
+{% endblock %}

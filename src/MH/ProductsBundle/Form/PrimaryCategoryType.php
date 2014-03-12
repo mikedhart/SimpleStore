@@ -16,6 +16,7 @@ class PrimaryCategoryType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('file')
         ;
     }
     

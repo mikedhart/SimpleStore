@@ -1,0 +1,51 @@
+{% extends 'MHStoreBundle:Default:layout.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Remove</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product }}</td>
+                            <td>{{ currency.html }}{{ product.price|number_format(2) }}</td>
+                            <td>
+                                <form action="{{ path('mh_store_remove_from_cart') }}" method="post">
+                                    <input type="hidden" name="product[id]" value="{{ product.id }}" />
+                                    <input class="btn" type="submit" value="Remove" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Order total:</strong></td>
+                            <td colspan="2">
+                                <strong>{{ running_total }}</strong>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div><!-- span12 -->
+    </div><!-- row -->
+    <div class="row">
+        <div class="span12">
+            <form method="POST" id="SagePayForm" action="https://test.sagepay.com/gateway/service/vspform-register.vsp">
+                <input type="hidden" name="VPSProtocol" value= "3.00">
+                <input type="hidden" name="Currency" value="{{ currency }}">
+                <input type="hidden" name="TxType" value= "PAYMENT">
+                <input type="hidden" name="Vendor" value= "reevesmarketing">
+                <input type="hidden" name="Crypt" value= "{{ crypt }}">
+                <input type="submit" value="Continue to SagePay" class="btn">
+            </form>
+        </div><!-- span12 -->
+    </div><!-- row -->
+</div><!-- container -->
+{% endblock %}

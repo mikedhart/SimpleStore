@@ -17,6 +17,7 @@ class SubCategoryType extends AbstractType
         $builder
             ->add('name')
             ->add('parentCategory')
+            ->add('file')
         ;
     }
     

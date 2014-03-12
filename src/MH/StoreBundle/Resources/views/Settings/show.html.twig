@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Settings</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Storename</th>
+                <td>{{ entity.storeName }}</td>
+            </tr>
+            <tr>
+                <th>Address1</th>
+                <td>{{ entity.address1 }}</td>
+            </tr>
+            <tr>
+                <th>Address2</th>
+                <td>{{ entity.address2 }}</td>
+            </tr>
+            <tr>
+                <th>Town</th>
+                <td>{{ entity.town }}</td>
+            </tr>
+            <tr>
+                <th>County</th>
+                <td>{{ entity.county }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ entity.country }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ entity.phone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ entity.fax }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_settings') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_settings_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

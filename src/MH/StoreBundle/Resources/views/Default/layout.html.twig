@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ settings.storeName }}</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span6">
+            <h1 id="logo">{{ settings.storeName }}</h1>
+        </div><!-- span6 -->
+        <div class="span6">
+            <div id="cart">
+                <a href="{{ path('mh_store_complete_order') }}">Shopping basket ({{ products_in_cart|length }} items)</a>
+            </div><!-- cart -->
+        </div><!-- span6 -->
+    </div><!-- row -->
+    <div class="row">
+        <div class="span12">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        {% for category in categories %}
+                            <li><a href="{{ path('mh_store_primary_category', { id: category.id }) }}">{{ category }}</a></li>
+                        {% endfor %}
+                    </ul><!-- nav -->
+                </div><!-- navbar-inner -->
+            </div><!-- navbar -->
+        </div><!-- span12 -->
+    </div><!-- row -->
+</div><!-- container -->
+
+{% block body %}
+
+{% endblock %}
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span4">
+                <h3>Pantastic</h3>
+                <p><i>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores aspernatur blanditiis, consectetur culpa dolorem eligendi facere laudantium mollitia non officia perferendis quis recusandae, sequi similique sit totam vel veritatis?"</i></p>
+            </div>
+            <div class="span4">
+                <h3>INFORMATION</h3>
+                <ul>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Customer service</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Orders and returns</a></li>
+                </ul>
+            </div>
+            <div class="span4">
+                <h3>STORE</h3>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">FAQ's</a></li>
+                    <li><a href="#">Shipping &amp; Returns</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

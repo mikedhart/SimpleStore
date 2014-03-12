@@ -45,7 +45,7 @@ class UploadController extends Controller
             $entity->upload();
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_uploads_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_uploads'));
         }
 
         return $this->render('MHProductsBundle:Upload:new.html.twig', array(
@@ -172,7 +172,7 @@ class UploadController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_uploads_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_uploads'));
         }
 
         return $this->render('MHProductsBundle:Upload:edit.html.twig', array(

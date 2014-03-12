@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 			new FOS\UserBundle\FOSUserBundle(),
             new MH\UserBundle\MHUserBundle(),
             new MH\ProductsBundle\MHProductsBundle(),
+            new MH\StoreBundle\MHStoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
