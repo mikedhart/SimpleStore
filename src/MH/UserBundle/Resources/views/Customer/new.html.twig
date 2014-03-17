@@ -1,10 +1,12 @@
 {% extends 'MHStoreBundle:Default:layout.html.twig' %}
 
-{% block body %}
+{% block body -%}
 	<div class="container">
 		<div class="row">
 			<div class="span12">
-				<div class="alert alert-warning">There are no products in your shopping basket</div>
+				<h1>New Account</h1>
+
+				{{ form(form) }}
 			</div>
 		</div>
 	</div>

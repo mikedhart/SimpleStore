@@ -24,6 +24,9 @@ class DefaultController extends Controller
         $this->tmplVars['cart_id'] = $this->cartId;
         $this->tmplVars['products_in_cart'] = $this->productsInCart;
         $this->tmplVars['currency'] = $this->currency;
+		if (isset($_SESSION['customer'])) {
+			$this->tmplVars['customer'] = $_SESSION['customer'];
+		}
     }
 
     private function makeCartId()
@@ -45,16 +48,7 @@ class DefaultController extends Controller
         $order = new CustomerOrder();
         $em->persist($order);
 
-        $customer = new Customer();
-        $customer->setAddress1('dummy');
-        $customer->setAddress2('dummy');
-        $customer->setCountry('uk');
-        $customer->setCounty('dummy');
-        $customer->setEmailAddress('dummy@dummy.com');
-        $customer->setTown('dummy');
-        $customer->setFirstName('dummy');
-        $customer->setLastName('dummy');
-
+        $customer = $_SESSION['customer'];
         $status = $em->getRepository('MHProductsBundle:OrderStatus')->findOneBy(array('name' => 'Paid'));
 
         $order->setCreatedAt(new \DateTime());
@@ -92,7 +86,10 @@ class DefaultController extends Controller
         $products = new ArrayCollection();
         $runningTotal = 0.00;
 
-        foreach ($this->productsInCart as $pid) {
+        $this->fetchCategories();
+        $this->fetchSettings();
+        
+		foreach ($this->productsInCart as $pid) {
             $product = $em->getRepository('MHProductsBundle:Product')->find($pid);
 
             if ($product instanceof Product) {
@@ -102,26 +99,28 @@ class DefaultController extends Controller
         }
 
         if ($products->count() == 0) {
-            return $this->render('MHStoreBundle:Default:empty_cart.html.twig');
+            return $this->render('MHStoreBundle:Default:empty_cart.html.twig', $this->tmplVars);
         }
 
-        $this->fetchCategories();
-        $this->fetchSettings();
+		$customer = $_SESSION['customer'];
 
         $sagePay = $this->get('mh_store.sage');
         $sagePay->setCurrency(strtolower($this->currency['symbol']));
         $sagePay->setAmount($runningTotal);
-        $sagePay->setDescription('Lorem ipsum');
-        $sagePay->setBillingSurname('Mustermann');
-        $sagePay->setBillingFirstnames('Max');
-        $sagePay->setBillingCity('Cologne');
-        $sagePay->setBillingPostCode('50650');
-        $sagePay->setBillingAddress1('Bahnhofstr. 1');
-        $sagePay->setBillingCountry('de');
-        $sagePay->setDeliverySameAsBilling();
+        $sagePay->setDescription('Pantastic order: ' . $this->cartId);
+        $sagePay->setBillingSurname($customer->getLastName());
+        $sagePay->setBillingFirstnames($customer->getFirstName());
+        $sagePay->setBillingCity($customer->getBillingTown());
+        $sagePay->setBillingAddress1($customer->getBillingAddress1());
+        $sagePay->setBillingCountry($customer->getBillingCountry());
+        $sagePay->setDeliverySurname($customer->getLastName());
+        $sagePay->setDeliveryFirstnames($customer->getFirstName());
+        $sagePay->setDeliveryCity($customer->getShippingTown());
+        $sagePay->setDeliveryAddress1($customer->getShippingAddress1());
+        $sagePay->setDeliveryCountry($customer->getShippingCountry());
 
-        $sagePay->setSuccessURL('https://www.yoururl.com/success.php');
-        $sagePay->setFailureURL('https://www.yoururl.org/fail.php');
+        $sagePay->setSuccessURL('http://www.yoururl.com/success.php');
+        $sagePay->setFailureURL('http://www.yoururl.org/fail.php');
 
         $this->tmplVars['products'] = $products;
         $this->tmplVars['running_total'] = $runningTotal;
@@ -183,6 +182,9 @@ class DefaultController extends Controller
         $this->fetchSettings();
 
         $this->fetchCategories();
+
+		$em = $this->get('doctrine')->getManager();
+		$this->tmplVars['products'] = $em->getRepository('MHProductsBundle:Product')->findBy(array('promoted' => true));
 
         return $this->render('MHStoreBundle:Default:index.html.twig', $this->tmplVars);
     }

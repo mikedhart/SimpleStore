@@ -1,0 +1,42 @@
+customers:
+    pattern:  /
+    defaults: { _controller: "MHUserBundle:Customer:index" }
+
+customers_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MHUserBundle:Customer:show" }
+
+customers_new:
+    pattern:  /new
+    defaults: { _controller: "MHUserBundle:Customer:new" }
+
+customers_create:
+    pattern:  /create
+    defaults: { _controller: "MHUserBundle:Customer:create" }
+    requirements: { _method: post }
+
+customers_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MHUserBundle:Customer:edit" }
+
+customers_logout:
+    pattern:  /logout
+    defaults: { _controller: "MHUserBundle:Customer:logOut" }
+
+customers_login:
+    pattern:  /login
+    defaults: { _controller: "MHUserBundle:Customer:logIn" }
+
+customers_orders:
+    pattern:  /orders
+    defaults: { _controller: "MHUserBundle:Customer:orders" }
+
+customers_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MHUserBundle:Customer:update" }
+    requirements: { _method: post|put }
+
+customers_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MHUserBundle:Customer:delete" }
+    requirements: { _method: post|delete }

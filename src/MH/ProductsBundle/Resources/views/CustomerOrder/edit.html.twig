@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Customer Order Edit</h1>
+
+		<p>Customer Details:</p>
+
+		<ul>
+			<li>Name: {{ entity.customer }}</li>
+			<li>Address: {{ entity.customer.fulladdress }}</li>
+		</ul>
+    {{ form(edit_form) }}
+
+		<ul class="record_actions">
+				<li>
+						<a href="{{ path('admin_orders') }}" class="btn">
+							Cancel	
+						</a>
+				</li>
+				<li>{{ form(delete_form) }}</li>
+		</ul>
+{% endblock %}

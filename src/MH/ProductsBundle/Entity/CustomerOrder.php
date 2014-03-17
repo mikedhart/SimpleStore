@@ -37,12 +37,6 @@ class CustomerOrder
      */
     private $createdAt;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="customer_id", type="integer")
-     */
-    private $customerId;
 
     /**
      * @var Customer
@@ -136,15 +130,6 @@ class CustomerOrder
         return $this;
     }
 
-    /**
-     * Get customerId
-     *
-     * @return integer 
-     */
-    public function getCustomerId()
-    {
-        return $this->customerId;
-    }
     /**
      * Constructor
      */

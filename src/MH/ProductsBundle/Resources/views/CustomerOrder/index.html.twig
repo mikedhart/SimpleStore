@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<h1>Order list</h1>
+
+				<table class="table">
+						<thead>
+								<tr>
+										<th>Customer</th>
+										<th>Hash</th>
+										<th>Createdat</th>
+										<th>Actions</th>
+								</tr>
+						</thead>
+						<tbody>
+						{% for entity in entities %}
+								<tr>
+										<td>{{ entity.customer.firstName }} {{ entity.customer.lastName }}</td>
+										<td>{{ entity.hash }}</td>
+										<td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+										<td>
+										<ul>
+												<li>
+														<a href="{{ path('admin_orders_show', { 'id': entity.id }) }}">show</a>
+												</li>
+												<li>
+														<a href="{{ path('admin_orders_edit', { 'id': entity.id }) }}">edit</a>
+												</li>
+										</ul>
+										</td>
+								</tr>
+						{% endfor %}
+						</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+admin_orders:
+    pattern:  /
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:index" }
+
+admin_orders_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:show" }
+
+admin_orders_new:
+    pattern:  /new
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:new" }
+
+admin_orders_create:
+    pattern:  /create
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:create" }
+    requirements: { _method: post }
+
+admin_orders_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:edit" }
+
+admin_orders_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:update" }
+    requirements: { _method: post|put }
+
+admin_orders_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "MHProductsBundle:CustomerOrder:delete" }
+    requirements: { _method: post|delete }

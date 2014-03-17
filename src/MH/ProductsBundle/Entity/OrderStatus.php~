@@ -108,4 +108,10 @@ class OrderStatus
     {
         return $this->orders;
     }
+
+	public function __toString ()
+	{
+		return $this->getName();
+	}
+
 }

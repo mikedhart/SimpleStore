@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/MH/StoreBundle/Resources/views/Settings/new.html.twig" line="13" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47398abc-424b-4c7c-8e68-4419d896583e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="47398abc-424b-4c7c-8e68-4419d896583e" name="Default" comment="" />
     <ignored path="SimpleStore.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />

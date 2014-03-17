@@ -21,3 +21,7 @@ MHProductsBundle_admin_uploads:
 MHStoreBundle_admin_settings:
     resource: "@MHStoreBundle/Resources/config/routing/settings.yml"
     prefix:   /settings
+
+MHProductsBundle_admin_orders:
+    resource: "@MHProductsBundle/Resources/config/routing/customerorder.yml"
+    prefix:   /orders

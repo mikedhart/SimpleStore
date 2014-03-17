@@ -4,7 +4,23 @@
     <div class="container">
         <div class="row">
             <div class="span12">
-                <p>Need to work out what goes here.</p>
+							<div id="top_products" class="carousel">
+								<div class="carousel-inner">
+									<div class="item active">
+										<img src="{{ asset('img/promotion1.gif') }}" alt="Promotion 1" />
+									</div><!-- item -->
+									<div class="item">
+										<img src="{{ asset('img/promotion2.gif') }}" alt="Promotion 2" />
+									</div><!-- item -->
+									<div class="item">
+										<img src="{{ asset('img/promotion3.gif') }}" alt="Promotion 3" />
+									</div><!-- item -->
+								</div><!-- carousel-inner -->
+								<a class="carousel-control left" href="#top_products" data-slide="prev">&lsaquo;</a>
+								<a class="carousel-control right" href="#top_products" data-slide="prev">&rsaquo;</a>
+							</div><!-- carousel -->
+							<h1>Top Products</h1>
+							{% include 'MHStoreBundle:Default:shared_product_list.html.twig' with { products: products } %}
             </div><!-- span12 -->
         </div><!-- row -->
     </div><!-- container -->

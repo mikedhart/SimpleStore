@@ -48,35 +48,91 @@ class Customer
      *
      * @ORM\Column(name="address_1", type="string", length=255)
      */
-    private $address1;
+    private $shippingAddress1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address_2", type="string", length=255)
+     * @ORM\Column(name="shipping_address_2", type="string", length=255)
      */
-    private $address2;
+    private $shippingAddress2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="town", type="string", length=255)
+     * @ORM\Column(name="shipping_town", type="string", length=255)
      */
-    private $town;
+    private $shippingTown;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="county", type="string", length=255)
+     * @ORM\Column(name="shipping_county", type="string", length=255)
      */
-    private $county;
+    private $shippingCounty;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=2)
+     * @ORM\Column(name="shipping_country", type="string", length=2)
      */
-    private $country;
+    private $shippingCountry;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="shipping_post_code", type="string", length=10)
+     */
+    private $shippingPostCode;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="billing_address_1", type="string", length=255)
+     */
+    private $billingAddress1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_address_2", type="string", length=255)
+     */
+    private $billingAddress2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_town", type="string", length=255)
+     */
+    private $billingTown;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_county", type="string", length=255)
+     */
+    private $billingCounty;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_country", type="string", length=2)
+     */
+    private $billingCountry;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="billing_post_code", type="string", length=10)
+     */
+    private $billingPostCode;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=32)
+     */
+    private $password;
 
     /**
      * @var ArrayCollection
@@ -179,107 +235,6 @@ class Customer
     }
 
     /**
-     * Get address1
-     *
-     * @return string 
-     */
-    public function getAddress1()
-    {
-        return $this->address1;
-    }
-
-    /**
-     * Set address2
-     *
-     * @param string $address2
-     * @return Customer
-     */
-    public function setAddress2($address2)
-    {
-        $this->address2 = $address2;
-
-        return $this;
-    }
-
-    /**
-     * Get address2
-     *
-     * @return string 
-     */
-    public function getAddress2()
-    {
-        return $this->address2;
-    }
-
-    /**
-     * Set town
-     *
-     * @param string $town
-     * @return Customer
-     */
-    public function setTown($town)
-    {
-        $this->town = $town;
-
-        return $this;
-    }
-
-    /**
-     * Get town
-     *
-     * @return string 
-     */
-    public function getTown()
-    {
-        return $this->town;
-    }
-
-    /**
-     * Set county
-     *
-     * @param string $county
-     * @return Customer
-     */
-    public function setCounty($county)
-    {
-        $this->county = $county;
-
-        return $this;
-    }
-
-    /**
-     * Get county
-     *
-     * @return string 
-     */
-    public function getCounty()
-    {
-        return $this->county;
-    }
-
-    /**
-     * Set country
-     *
-     * @param string $country
-     * @return Customer
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return string 
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-    /**
      * Constructor
      */
     public function __construct()
@@ -318,5 +273,331 @@ class Customer
     public function getOrders()
     {
         return $this->orders;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return Customer
+     */
+    public function setPassword($password)
+    {
+        $this->password = md5($password);
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+	public function __toString()
+	{
+		return $this->getFirstName() . ' ' . $this->getLastName();
+	}
+
+	public function getFullBillingAddress()
+	{
+		return implode(', ', array(
+			$this->getBillingAddress1(),
+			$this->getBillingAddress2(),
+			$this->getBillingTown(),
+			$this->getBillingCounty(),
+			$this->getBillingCountry()
+		));
+	}
+
+	public function getFullShippingAddress()
+	{
+		return implode(', ', array(
+			$this->getShippingAddress1(),
+			$this->getShippingAddress2(),
+			$this->getShippingTown(),
+			$this->getShippingCounty(),
+			$this->getShippingCountry()
+		));
+	}
+
+    /**
+     * Set shippingAddress1
+     *
+     * @param string $shippingAddress1
+     * @return Customer
+     */
+    public function setShippingAddress1($shippingAddress1)
+    {
+        $this->shippingAddress1 = $shippingAddress1;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingAddress1
+     *
+     * @return string 
+     */
+    public function getShippingAddress1()
+    {
+        return $this->shippingAddress1;
+    }
+
+    /**
+     * Set shippingAddress2
+     *
+     * @param string $shippingAddress2
+     * @return Customer
+     */
+    public function setShippingAddress2($shippingAddress2)
+    {
+        $this->shippingAddress2 = $shippingAddress2;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingAddress2
+     *
+     * @return string 
+     */
+    public function getShippingAddress2()
+    {
+        return $this->shippingAddress2;
+    }
+
+    /**
+     * Set shippingTown
+     *
+     * @param string $shippingTown
+     * @return Customer
+     */
+    public function setShippingTown($shippingTown)
+    {
+        $this->shippingTown = $shippingTown;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingTown
+     *
+     * @return string 
+     */
+    public function getShippingTown()
+    {
+        return $this->shippingTown;
+    }
+
+    /**
+     * Set shippingCounty
+     *
+     * @param string $shippingCounty
+     * @return Customer
+     */
+    public function setShippingCounty($shippingCounty)
+    {
+        $this->shippingCounty = $shippingCounty;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingCounty
+     *
+     * @return string 
+     */
+    public function getShippingCounty()
+    {
+        return $this->shippingCounty;
+    }
+
+    /**
+     * Set shippingCountry
+     *
+     * @param string $shippingCountry
+     * @return Customer
+     */
+    public function setShippingCountry($shippingCountry)
+    {
+        $this->shippingCountry = $shippingCountry;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingCountry
+     *
+     * @return string 
+     */
+    public function getShippingCountry()
+    {
+        return $this->shippingCountry;
+    }
+
+    /**
+     * Set shippingPostCode
+     *
+     * @param string $shippingPostCode
+     * @return Customer
+     */
+    public function setShippingPostCode($shippingPostCode)
+    {
+        $this->shippingPostCode = $shippingPostCode;
+
+        return $this;
+    }
+
+    /**
+     * Get shippingPostCode
+     *
+     * @return string 
+     */
+    public function getShippingPostCode()
+    {
+        return $this->shippingPostCode;
+    }
+
+    /**
+     * Set billingAddress1
+     *
+     * @param string $billingAddress1
+     * @return Customer
+     */
+    public function setBillingAddress1($billingAddress1)
+    {
+        $this->billingAddress1 = $billingAddress1;
+
+        return $this;
+    }
+
+    /**
+     * Get billingAddress1
+     *
+     * @return string 
+     */
+    public function getBillingAddress1()
+    {
+        return $this->billingAddress1;
+    }
+
+    /**
+     * Set billingAddress2
+     *
+     * @param string $billingAddress2
+     * @return Customer
+     */
+    public function setBillingAddress2($billingAddress2)
+    {
+        $this->billingAddress2 = $billingAddress2;
+
+        return $this;
+    }
+
+    /**
+     * Get billingAddress2
+     *
+     * @return string 
+     */
+    public function getBillingAddress2()
+    {
+        return $this->billingAddress2;
+    }
+
+    /**
+     * Set billingTown
+     *
+     * @param string $billingTown
+     * @return Customer
+     */
+    public function setBillingTown($billingTown)
+    {
+        $this->billingTown = $billingTown;
+
+        return $this;
+    }
+
+    /**
+     * Get billingTown
+     *
+     * @return string 
+     */
+    public function getBillingTown()
+    {
+        return $this->billingTown;
+    }
+
+    /**
+     * Set billingCounty
+     *
+     * @param string $billingCounty
+     * @return Customer
+     */
+    public function setBillingCounty($billingCounty)
+    {
+        $this->billingCounty = $billingCounty;
+
+        return $this;
+    }
+
+    /**
+     * Get billingCounty
+     *
+     * @return string 
+     */
+    public function getBillingCounty()
+    {
+        return $this->billingCounty;
+    }
+
+    /**
+     * Set billingCountry
+     *
+     * @param string $billingCountry
+     * @return Customer
+     */
+    public function setBillingCountry($billingCountry)
+    {
+        $this->billingCountry = $billingCountry;
+
+        return $this;
+    }
+
+    /**
+     * Get billingCountry
+     *
+     * @return string 
+     */
+    public function getBillingCountry()
+    {
+        return $this->billingCountry;
+    }
+
+    /**
+     * Set billingPostCode
+     *
+     * @param string $billingPostCode
+     * @return Customer
+     */
+    public function setBillingPostCode($billingPostCode)
+    {
+        $this->billingPostCode = $billingPostCode;
+
+        return $this;
+    }
+
+    /**
+     * Get billingPostCode
+     *
+     * @return string 
+     */
+    public function getBillingPostCode()
+    {
+        return $this->billingPostCode;
     }
 }

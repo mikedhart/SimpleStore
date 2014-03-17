@@ -55,8 +55,8 @@ body { font-family: Oxygen-Bold; }
 #logo {
     text-indent: -9999px;
     background: url('../img/logo.png') no-repeat;
-    width: 300px;
-    height: 155px;
+    width: 260px;
+    height: 134px;
 }
 body { background-image: url('../img/bg_page.png'); }
 .navbar { margin-top: 20px; }
@@ -80,7 +80,7 @@ body { background-image: url('../img/bg_page.png'); }
     display: inline-block;
     padding: 10px;
     float: right;
-    margin-top: 90px;
+    margin-top: 64px;
 }
 
 #cart a:link, #cart a:visited {
@@ -170,3 +170,5 @@ footer div.span4 {
     -webkit-box-sizing:border-box;
 }
 footer div.span4 ul li a:link { font-family: arial; }
+.actions { text-align: right; padding: 15px 0;}
+.clear { clear:both; }

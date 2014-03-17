@@ -1,0 +1,20 @@
+<ul class="listing">
+	{% for product in products %}
+			<li>
+					{% if product.uploads.get(0) is null %}
+							<img src="http://placehold.it/131x140&text=Image+missing" alt="Image of {{ product }}" />
+					{% else %}
+							<img width="131" height="140" src="{{ product.uploads.get(0).webpath }}" alt="Image of {{ product }}" />
+					{% endif %}
+
+					<div class="details">
+							<a class="header" href="{{ path('mh_store_product', { name: product.hash }) }}">{{ product }}</a>
+							<p class="description">{{ product.blurb }}...</p>
+							<form action="{{ path('mh_store_add_to_cart') }}" method="post">
+									<input type="hidden" name="product[id]" value="{{ product.id }}" />
+									<input type="submit" value="Add to cart" class="btn" />
+							</form>
+					</div><!-- details -->
+			</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+	<div class="row">
+		<div class="span12">
+		
+    <h1>Order</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Hash</th>
+                <td>{{ entity.hash }}</td>
+            </tr>
+            <tr>
+                <th>Created at</th>
+                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+						<tr>
+							<th>Products</th>
+							<td>
+								<ul>
+									{% for product in entity.products %}
+										<li>{{ product }}</li>
+									{% endfor %}
+								</ul>
+							</td>
+						</tr>
+        </tbody>
+    </table>
+
+		<div class="btn-group">
+        <a class="btn" href="{{ path('admin_orders') }}">
+            Back to the list
+        </a>
+        <a class="btn btn-success" href="{{ path('admin_orders_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+		</div>
+
+
+		<br>
+		<br>
+		
+    {{ form(delete_form) }}
+		
+		</div>
+	</div>
+</div>
+{% endblock %}

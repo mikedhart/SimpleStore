@@ -35,9 +35,75 @@
             </table>
         </div><!-- span12 -->
     </div><!-- row -->
+		<div class="row">
+			<div class="span6">
+				<h3>Shipping Address</h3>
+				<table class="table">
+					<tr>
+						<th>Address 1</th>
+						<td>{{ customer.shippingaddress1 }}</td>
+					</tr>
+					<tr>
+						<th>Address 2</th>
+						<td>{{ customer.shippingAddress2 }}</td>
+					</tr>
+					<tr>
+						<th>Town</th>
+						<td>{{ customer.shippingTown }}</td>
+					</tr>
+					<tr>
+						<th>County</th>
+						<td>{{ customer.shippingCounty }}</td>
+					</tr>
+					<tr>
+						<th>Country</th>
+						<th>{{ customer.shippingCountry }}</th>
+					</tr>
+					<tr>
+						<th>Post Code</th>
+						<th>{{ customer.shippingPostCode }}</th>
+					</tr>
+				</table>
+				<a class="btn" href="{{ path('customers_edit', { id: customer.id }) }}">Update Details</a>
+			</div><!-- span6 -->
+			<div class="span6">
+				<h3>Billing Address</h3>
+				<table class="table">
+					<tr>
+						<th>Address 1</th>
+						<td>{{ customer.shippingaddress1 }}</td>
+					</tr>
+					<tr>
+						<th>Address 2</th>
+						<td>{{ customer.billingAddress2 }}</td>
+					</tr>
+					<tr>
+						<th>Town</th>
+						<td>{{ customer.billingTown }}</td>
+					</tr>
+					<tr>
+						<th>County</th>
+						<td>{{ customer.billingCounty }}</td>
+					</tr>
+					<tr>
+						<th>Country</th>
+						<th>{{ customer.billingCountry }}</th>
+					</tr>
+					<tr>
+						<th>Post Code</th>
+						<th>{{ customer.billingPostCode }}</th>
+					</tr>
+				</table>
+				<a class="btn" href="{{ path('customers_edit', { id: customer.id }) }}">Update Details</a>
+			</div><!-- span6 -->
+		</div>
     <div class="row">
         <div class="span12">
-            <form method="POST" id="SagePayForm" action="https://test.sagepay.com/gateway/service/vspform-register.vsp">
+					<br>
+					<br>
+					
+            {% if app.session.get('customer') is defined %}
+						<form method="POST" id="SagePayForm" action="https://test.sagepay.com/gateway/service/vspform-register.vsp">
                 <input type="hidden" name="VPSProtocol" value= "3.00">
                 <input type="hidden" name="Currency" value="{{ currency }}">
                 <input type="hidden" name="TxType" value= "PAYMENT">
@@ -45,6 +111,9 @@
                 <input type="hidden" name="Crypt" value= "{{ crypt }}">
                 <input type="submit" value="Continue to SagePay" class="btn">
             </form>
+						{% else %}
+							<a href="{{ path('customers_login') }}" class="btn">Login to complete order</a>
+						{% endif %}
         </div><!-- span12 -->
     </div><!-- row -->
 </div><!-- container -->

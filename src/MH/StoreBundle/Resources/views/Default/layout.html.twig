@@ -10,9 +10,18 @@
 <div class="container">
     <div class="row">
         <div class="span6">
-            <h1 id="logo">{{ settings.storeName }}</h1>
+            <a href="{{ path('mh_store_homepage') }}"><h1 id="logo">{{ settings.storeName }}</h1></a>
         </div><!-- span6 -->
-        <div class="span6">
+        <div class="span6 actions">
+            {% if customer is defined %}
+							<a href="{{ path('customers_orders') }}">My Orders</a> |
+							<a href="{{ path('customers_logout') }}">Log out</a>
+						{% else %}
+							<a href="{{ path('customers_login') }}">Log in</a> |
+							<a href="{{ path('customers_new') }}">Register</a>
+						{% endif %}
+
+						<div class="clear"></div>
             <div id="cart">
                 <a href="{{ path('mh_store_complete_order') }}">Shopping basket ({{ products_in_cart|length }} items)</a>
             </div><!-- cart -->
@@ -33,6 +42,17 @@
     </div><!-- row -->
 </div><!-- container -->
 
+<div class="container">
+	<div class="row">
+		<div class="span12">
+				{% for flashMessage in app.session.flashbag.get('notice') %}
+					<div class="alert alert-warning">
+							{{ flashMessage }}
+					</div><!-- left -->
+				{% endfor %}
+		</div>
+	</div>
+</div>
 {% block body %}
 
 {% endblock %}
@@ -65,6 +85,10 @@
         </div>
     </div>
 </footer>
+
+<script type="text/javascript" charset="utf-8" src="{{ asset('js/jquery-2.1.0.min.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ asset('js/main.js') }}"></script>
 
 </body>
 </html>

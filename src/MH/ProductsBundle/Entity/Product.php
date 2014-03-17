@@ -63,6 +63,13 @@ class Product
      * @ORM\Column(name="blurb", type="string", length=255)
      */
     private $blurb;
+    
+	/**
+     * @var boolean
+     *
+     * @ORM\Column(name="promoted", type="boolean")
+     */
+    private $promoted = false;
 
     /**
      * @var string
@@ -529,5 +536,28 @@ class Product
     public function getStockLevel()
     {
         return $this->stockLevel;
+    }
+
+    /**
+     * Set promoted
+     *
+     * @param boolean $promoted
+     * @return Product
+     */
+    public function setPromoted($promoted)
+    {
+        $this->promoted = $promoted;
+
+        return $this;
+    }
+
+    /**
+     * Get promoted
+     *
+     * @return boolean 
+     */
+    public function getPromoted()
+    {
+        return $this->promoted;
     }
 }

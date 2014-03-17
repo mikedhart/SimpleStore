@@ -1,0 +1,25 @@
+{% extends 'MHStoreBundle:Default:layout.html.twig' %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="well">
+				<form action="{{ path('customers_login') }}" method="post" accept-charset="utf-8" class="form form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="customer_email">Email Address</label>
+						<div class="controls"><input type="text" name="customer[email]" id="customer_email"></div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="customer_password">Password</label>
+						<div class="controls"><input type="password" name="customer[password]" id="customer_password"></div>
+					</div>
+					<div class="control-group">
+						<div class="controls"><input class="btn" value="login" type="submit"></div>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

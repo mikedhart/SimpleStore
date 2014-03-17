@@ -48,35 +48,91 @@ class Customer
      *
      * @ORM\Column(name="address_1", type="string", length=255)
      */
-    private $address1;
+    private $shippingAddress1;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address_2", type="string", length=255)
+     * @ORM\Column(name="shipping_address_2", type="string", length=255)
      */
-    private $address2;
+    private $shippingAddress2;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="town", type="string", length=255)
+     * @ORM\Column(name="shipping_town", type="string", length=255)
      */
-    private $town;
+    private $shippingTown;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="county", type="string", length=255)
+     * @ORM\Column(name="shipping_county", type="string", length=255)
      */
-    private $county;
+    private $shippingCounty;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=2)
+     * @ORM\Column(name="shipping_country", type="string", length=2)
      */
-    private $country;
+    private $shippingCountry;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="shipping_post_code", type="string", length=10)
+     */
+    private $shippingPostCode;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="billing_address_1", type="string", length=255)
+     */
+    private $billingAddress1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_address_2", type="string", length=255)
+     */
+    private $billingAddress2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_town", type="string", length=255)
+     */
+    private $billingTown;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_county", type="string", length=255)
+     */
+    private $billingCounty;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="billing_country", type="string", length=2)
+     */
+    private $billingCountry;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="billing_post_code", type="string", length=10)
+     */
+    private $billingPostCode;
+    
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=32)
+     */
+    private $password;
 
     /**
      * @var ArrayCollection
@@ -319,4 +375,44 @@ class Customer
     {
         return $this->orders;
     }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     * @return Customer
+     */
+    public function setPassword($password)
+    {
+        $this->password = md5($password);
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+	public function __toString()
+	{
+		return $this->getFirstName() . ' ' . $this->getLastName();
+	}
+
+	public function getFullAddress()
+	{
+		return implode(', ', array(
+			$this->getAddress1(),
+			$this->getAddress2(),
+			$this->getTown(),
+			$this->getCounty(),
+			$this->getCountry()
+		));
+	}
+
 }

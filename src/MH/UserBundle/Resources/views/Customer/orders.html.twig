@@ -1,0 +1,36 @@
+{% extends 'MHStoreBundle:Default:layout.html.twig' %}
+
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>Date</td>
+						<td>Order ID</td>
+						<td>Products</td>
+						<td>Status</td>
+					</tr>
+				</thead>
+				<tbody>
+					{% for order in orders %}
+						<tr>
+							<td>{{ order.createdAt|date }}</td>
+							<td>{{ order.hash }}</td>
+							<td>
+							<ul>
+								{% for product in order.products %}
+									<li>{{ product }}</li>
+								{% endfor %}
+							</td>
+							</ul>
+							<td>{{ order.status.name }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div><!-- container -->
+{% endblock %}

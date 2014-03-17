@@ -2,6 +2,10 @@ mh_store:
     resource: "@MHStoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+mh_customers:
+    resource: "@MHUserBundle/Resources/config/routing.yml"
+    prefix:   /customers
+
 MHProductsBundle_admin_products:
     resource: "@MHProductsBundle/Resources/config/routing.yml"
     prefix:   /admin
