@@ -36,43 +36,50 @@ class DefaultController extends Controller
 
     public function clearOrderAction()
     {
-        if (isset($_REQUEST['crypt'])) {
-            $responseArray = $this->get('mh_store.sage')->decode($_REQUEST['crypt']);
-            print '<pre>';
-            print_r($responseArray);
-            print '</pre>';
-            exit;
-        }
-
         $em = $this->getDoctrine()->getManager();
         $order = new CustomerOrder();
-        $em->persist($order);
-
         $customer = $_SESSION['customer'];
-        $status = $em->getRepository('MHProductsBundle:OrderStatus')->findOneBy(array('name' => 'Paid'));
+        $em->persist($order);
+        
+		if (isset($_REQUEST['crypt'])) {
+            $responseArray = $this->get('mh_store.sage')->decode($_REQUEST['crypt']);
 
-        $order->setCreatedAt(new \DateTime());
-        $order->setHash($_SESSION['cart_id']);
-        $order->setStatus($status);
-        $order->setCustomer($customer);
+			if ($responseArray['Status'] == 'OK') {
+				$status = $this->getDoctrine()->getManager()->findOneBy(array('name' => 'Paid'));
 
-        foreach ($_SESSION['products_in_cart'] as $pid) {
-            $product = $em->getRepository('MHProductsBundle:Product')->find($pid);
-            $em->persist($product);
+				if ($status) {
+					$order->setStatus($status);
+					$order->setVendorTxCode($responseArray['VendorTxCode']);
+					$order->setStatusDetail($responseArray['StatusDetail']);
+					$order->setTxAuthNo($responseArray['TxAuthNo']);
+					$order->setBankAuthCode($responseArray['BankAuthCode']);
+					$order->setCreatedAt(new \DateTime());
+					$order->setCustomer($customer);
+					
+					foreach ($_SESSION['products_in_cart'] as $pid) {
+						$product = $em->getRepository('MHProductsBundle:Product')->find($pid);
+						$em->persist($product);
 
-            if ($product instanceof Product) {
-                $product->setStockLevel($product->getStockLevel() - 1);
-                $order->addProduct($product);
-            }
+						if ($product instanceof Product) {
+							$product->setStockLevel($product->getStockLevel() - 1);
+							$order->addProduct($product);
+						}
+					}
+
+					$em->flush();
+					
+					$_SESSION['cart_id'] = $this->makeCartId();
+					$_SESSION['products_in_cart'] = array();
+
+					$this->get('session')->getFlashBag()->add('notice', "Thank you, your transaction was successful!");
+				}
+			} else {
+				$this->get('session')->getFlashBag()->add('notice', "Sorry, your transaction was not successful.");
+			}
         }
-
-        $em->flush();
-
-        $_SESSION['cart_id'] = $this->makeCartId();
-        $_SESSION['products_in_cart'] = array();
-
-        var_dump($_SESSION);die;
-    }
+        
+		return $this->redirect("/");
+	}
 
     private function fetchSettings()
     {

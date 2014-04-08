@@ -26,9 +26,30 @@ class CustomerOrder
     /**
      * @var string
      *
-     * @ORM\Column(name="hash", type="string", length=32)
+     * @ORM\Column(name="vendor_tx_code", type="string")
      */
-    private $hash;
+    private $vendorTxCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status_detail", type="string")
+     */
+    private $statusDetail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tx_auth_no", type="string")
+     */
+    private $txAuthNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bank_auth_code", type="string")
+     */
+    private $bankAuthCode;
 
     /**
      * @var \DateTime
@@ -215,5 +236,97 @@ class CustomerOrder
     public function getProducts()
     {
         return $this->products;
+    }
+
+    /**
+     * Set vendorTxCode
+     *
+     * @param string $vendorTxCode
+     * @return CustomerOrder
+     */
+    public function setVendorTxCode($vendorTxCode)
+    {
+        $this->vendorTxCode = $vendorTxCode;
+
+        return $this;
+    }
+
+    /**
+     * Get vendorTxCode
+     *
+     * @return string 
+     */
+    public function getVendorTxCode()
+    {
+        return $this->vendorTxCode;
+    }
+
+    /**
+     * Set statusDetail
+     *
+     * @param string $statusDetail
+     * @return CustomerOrder
+     */
+    public function setStatusDetail($statusDetail)
+    {
+        $this->statusDetail = $statusDetail;
+
+        return $this;
+    }
+
+    /**
+     * Get statusDetail
+     *
+     * @return string 
+     */
+    public function getStatusDetail()
+    {
+        return $this->statusDetail;
+    }
+
+    /**
+     * Set txAuthNo
+     *
+     * @param string $txAuthNo
+     * @return CustomerOrder
+     */
+    public function setTxAuthNo($txAuthNo)
+    {
+        $this->txAuthNo = $txAuthNo;
+
+        return $this;
+    }
+
+    /**
+     * Get txAuthNo
+     *
+     * @return string 
+     */
+    public function getTxAuthNo()
+    {
+        return $this->txAuthNo;
+    }
+
+    /**
+     * Set bankAuthCode
+     *
+     * @param string $bankAuthCode
+     * @return CustomerOrder
+     */
+    public function setBankAuthCode($bankAuthCode)
+    {
+        $this->bankAuthCode = $bankAuthCode;
+
+        return $this;
+    }
+
+    /**
+     * Get bankAuthCode
+     *
+     * @return string 
+     */
+    public function getBankAuthCode()
+    {
+        return $this->bankAuthCode;
     }
 }
