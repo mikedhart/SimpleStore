@@ -14,11 +14,11 @@
             </div><!-- span4 -->
             <div class="span8">
                 <h1>{{ product }}</h1>
+                <p>{{ product.description }}</p>
                 <ul>
                     <li>Manufacturer: {{ product.manufacturer.name }}</li>
                     <li>Range: {{ product.manufacturerRange }}</li>
                 </ul>
-                <p>{{ product.description }}</p>
                 <ul>
                     {% for value in product.details %}
                         <li>{{ value.detail.name }}: {% if value.value == 'Y' %}Yes{% else %}{{ value.value }}{% endif %}</li>

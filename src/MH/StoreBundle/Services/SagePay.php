@@ -52,7 +52,7 @@ class SagePay {
     protected $referrerID;
     protected $language;
     protected $website;
-    protected $encryptPassword = "d7t2gnd92jk348fh";
+    protected $encryptPassword = "89dd51abd1e1aa84";
 
     public function __construct() {
         $this->setVendorTxCode($this->createVendorTxCode());

@@ -36,13 +36,13 @@ class DefaultController extends Controller
 
     public function clearOrderAction()
     {
-        /*if (isset($_REQUEST['crypt'])) {
+        if (isset($_REQUEST['crypt'])) {
             $responseArray = $this->get('mh_store.sage')->decode($_REQUEST['crypt']);
             print '<pre>';
             print_r($responseArray);
             print '</pre>';
             exit;
-        }*/
+        }
 
         $em = $this->getDoctrine()->getManager();
         $order = new CustomerOrder();
@@ -104,7 +104,10 @@ class DefaultController extends Controller
 
 		$customer = $_SESSION['customer'];
 
-        $sagePay = $this->get('mh_store.sage');
+		$billingCountry = str_replace("UK", "GB", strtoupper($customer->getBillingCountry()));
+		$deliveryCountry = str_replace("UK", "GB", strtoupper($customer->getShippingCountry()));
+        
+		$sagePay = $this->get('mh_store.sage');
         $sagePay->setCurrency(strtolower($this->currency['symbol']));
         $sagePay->setAmount($runningTotal);
         $sagePay->setDescription('Pantastic order: ' . $this->cartId);
@@ -112,15 +115,17 @@ class DefaultController extends Controller
         $sagePay->setBillingFirstnames($customer->getFirstName());
         $sagePay->setBillingCity($customer->getBillingTown());
         $sagePay->setBillingAddress1($customer->getBillingAddress1());
-        $sagePay->setBillingCountry($customer->getBillingCountry());
+        $sagePay->setBillingPostCode($customer->getBillingPostCode());
+        $sagePay->setBillingCountry($billingCountry);
         $sagePay->setDeliverySurname($customer->getLastName());
         $sagePay->setDeliveryFirstnames($customer->getFirstName());
         $sagePay->setDeliveryCity($customer->getShippingTown());
         $sagePay->setDeliveryAddress1($customer->getShippingAddress1());
-        $sagePay->setDeliveryCountry($customer->getShippingCountry());
+        $sagePay->setDeliveryCountry($deliveryCountry);
+        $sagePay->setDeliveryPostCode($customer->getShippingPostCode());
 
-        $sagePay->setSuccessURL('http://www.yoururl.com/success.php');
-        $sagePay->setFailureURL('http://www.yoururl.org/fail.php');
+        $sagePay->setSuccessURL('http://pantastic.staging.mikedhart.co.uk/clear-order');
+        $sagePay->setFailureURL('http://pantastic.staging.mikedhart.co.uk/sorry');
 
         $this->tmplVars['products'] = $products;
         $this->tmplVars['running_total'] = $runningTotal;

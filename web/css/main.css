@@ -70,10 +70,12 @@ body { background-image: url('../img/bg_page.png'); }
     font-size: 24px;
     text-transform: uppercase;
     padding: 20px;
+    border-right: thin solid #013;
 }
 .navbar .nav>li>a:focus, .navbar .nav>li>a:hover {
     color: #fff;
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background: #013;
 }
 #cart {
     background :#1B1849;
@@ -172,3 +174,9 @@ footer div.span4 {
 footer div.span4 ul li a:link { font-family: arial; }
 .actions { text-align: right; padding: 15px 0;}
 .clear { clear:both; }
+@media all and (max-width: 1024px) {
+	ul.nav li {
+		float: none;
+		width: 100%;
+	}
+}
