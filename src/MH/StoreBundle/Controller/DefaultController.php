@@ -45,7 +45,7 @@ class DefaultController extends Controller
             $responseArray = $this->get('mh_store.sage')->decode($_REQUEST['crypt']);
 
 			if ($responseArray['Status'] == 'OK') {
-				$status = $this->getDoctrine()->getManager()->findBy(array('name' => 'Paid'));
+				$status = $em->getRepository('MHProductsBundle:OrderStatus')->findOneBy(array('name' => 'Paid'));
 
 				if ($status) {
 					$order->setStatus($status);
