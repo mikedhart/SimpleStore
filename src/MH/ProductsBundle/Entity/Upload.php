@@ -47,6 +47,11 @@ class Upload
     public $path;
 
     /**
+     * @ORM\Column(type="integer", length=2)
+     */
+    public $rank = 0;
+
+    /**
      * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
      */
     public function setFile($file)

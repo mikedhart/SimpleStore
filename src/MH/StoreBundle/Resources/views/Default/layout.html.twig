@@ -5,6 +5,9 @@
     <title>{{ settings.storeName }}</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+		<link rel="icon" 
+					type="image/png" 
+					href="{{ asset('img/favicon.ico') }}">
 </head>
 <body>
 <div class="container">
@@ -15,13 +18,13 @@
         <div class="span6 actions">
             {% if customer is defined %}
 							<a href="{{ path('customers_orders') }}">My Orders</a> |
-							<a href="{{ path('customers_logout') }}">Log out</a> |
+							<a href="#">About</a> |
+							<a href="{{ path('customers_logout') }}">Log out</a>
 						{% else %}
 							<a href="{{ path('customers_login') }}">Log in</a> |
-							<a href="{{ path('customers_new') }}">Register</a> |
+							<a href="#">About</a> |
+							<a href="{{ path('customers_new') }}">Register</a>
 						{% endif %}
-
-						<a href="#">About</a>
 						
 						<div class="clear"></div>
             <div id="cart">
@@ -34,6 +37,7 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <ul class="nav">
+												<li><a href="{{ path('mh_store_homepage') }}">Home</a></li>
                         {% for category in categories %}
                             <li><a href="{{ path('mh_store_primary_category', { id: category.id }) }}">{{ category }}</a></li>
                         {% endfor %}

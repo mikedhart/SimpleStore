@@ -67,7 +67,7 @@ body { background-image: url('../img/bg_page.png'); }
 .navbar .nav>li>a {
     text-shadow: none;
     color: #fff;
-    font-size: 24px;
+    font-size: 18px;
     text-transform: uppercase;
     padding: 20px;
     border-right: thin solid #013;
@@ -173,6 +173,7 @@ footer div.span4 {
 }
 footer div.span4 ul li a:link { font-family: arial; }
 .actions { text-align: right; padding: 15px 0;}
+.actions a:link{ font-size: 16px; }
 .clear { clear:both; }
 @media all and (max-width: 1024px) {
 	ul.nav li {

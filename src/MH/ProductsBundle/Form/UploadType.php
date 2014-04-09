@@ -18,6 +18,7 @@ class UploadType extends AbstractType
             ->add('name')
             ->add('product')
             ->add('file')
+            ->add('rank')
         ;
     }
     
