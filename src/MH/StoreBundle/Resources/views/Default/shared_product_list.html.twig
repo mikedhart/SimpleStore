@@ -4,7 +4,7 @@
 					{% if product.uploads.get(0) is null %}
 							<img src="http://placehold.it/131x140&text=Image+missing" alt="Image of {{ product }}" />
 					{% else %}
-							<img width="131" height="140" src="{{ product.uploads.get(0).webpath }}" alt="Image of {{ product }}" />
+							<img width="131" height="140" src="{{ product.uploads.get(product.uploads|length - 1).webpath }}" alt="Image of {{ product }}" />
 					{% endif %}
 
 					<div class="details">

@@ -403,6 +403,11 @@ class Product
         return $this->uploads;
     }
 
+	public function getFirstUpload()
+	{
+
+	}
+
     public function __toString()
     {
         return $this->getName();
