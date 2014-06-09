@@ -84,7 +84,8 @@ class DefaultController extends Controller
     private function fetchSettings()
     {
         $settings = $this->getDoctrine()->getManager()->getRepository('MHStoreBundle:Settings')->findAll();
-        $this->tmplVars['settings'] = $settings[0];
+        
+				$this->tmplVars['settings'] = (empty($settings)) ? $settings : $settings[0];
     }
 
     public function completeOrderAction()

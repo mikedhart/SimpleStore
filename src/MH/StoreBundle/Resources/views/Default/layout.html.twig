@@ -15,7 +15,7 @@
         <div class="span6">
             <a href="{{ path('mh_store_homepage') }}"><h1 id="logo">{{ settings.storeName }}</h1></a>
         </div><!-- span6 -->
-        <div class="span6 actions">
+        <div class="span6 actions my_stuff">
             {% if customer is defined %}
 							<a href="{{ path('customers_orders') }}">My Orders</a> |
 							<a href="#">About</a> |
@@ -28,7 +28,7 @@
 						
 						<div class="clear"></div>
             <div id="cart">
-                <a href="{{ path('mh_store_complete_order') }}">Shopping basket ({{ products_in_cart|length }} items)</a>
+                <a href="{{ path('mh_store_complete_order') }}">Shopping bag ({{ products_in_cart|length }} items)</a>
             </div><!-- cart -->
         </div><!-- span6 -->
     </div><!-- row -->
