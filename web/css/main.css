@@ -125,13 +125,13 @@ ul.listing li .header {
 ul.listing li .description {
     padding: 5px 0;
     color: #888;
-    height: 44px;
+    height: 54px;
     overflow: hidden;
 }
 ul.listing li .details {
     float: right;
     width: 58%;
-    height: 140px;
+    height: 150px;
     overflow: hidden;
 }
 a.btn:link, a.btn:visited, button.btn, input[type="submit"].btn {

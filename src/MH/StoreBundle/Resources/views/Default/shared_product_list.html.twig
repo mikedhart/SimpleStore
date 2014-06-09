@@ -10,8 +10,8 @@
 					<div class="details">
 							<a class="header" href="{{ path('mh_store_product', { name: product.hash }) }}">{{ product }}</a>
 							<p class="description">
-								Manufacturer: {{ product.manufacturer.name }}
-								{{ product.blurb }}...
+								Manufacturer: {{ product.manufacturer.name }}<br />
+								{% if product.blurb %}{{ product.blurb }}...{% else %}No description{% endif %}
 							</p>
 							<form action="{{ path('mh_store_add_to_cart') }}" method="post">
 									<input type="hidden" name="product[id]" value="{{ product.id }}" />
