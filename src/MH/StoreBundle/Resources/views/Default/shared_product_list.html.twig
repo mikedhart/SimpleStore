@@ -8,8 +8,11 @@
 					{% endif %}
 
 					<div class="details">
-							<a class="header" href="{{ path('mh_store_product', { name: product.hash }) }}">{{ product }} - {{ product.manufacturer.name }}</a>
-							<p class="description">{{ product.blurb }}...</p>
+							<a class="header" href="{{ path('mh_store_product', { name: product.hash }) }}">{{ product }}</a>
+							<p class="description">
+								Manufacturer: {{ product.manufacturer.name }}
+								{{ product.blurb }}...
+							</p>
 							<form action="{{ path('mh_store_add_to_cart') }}" method="post">
 									<input type="hidden" name="product[id]" value="{{ product.id }}" />
 									<input type="submit" value="Add to cart" class="btn" />
